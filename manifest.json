@@ -1,7 +1,7 @@
 {
   "id": "block-reference-navigator",
   "name": "Block Reference Navigator",
-  "version": "1.1.3",
+  "version": "0.0.2",
   "minAppVersion": "1.5.0",
   "description": "A minimal, high-density sidebar panel for navigating, previewing, and exporting block-level references in Obsidian.",
   "author": "SuSequs-X",
