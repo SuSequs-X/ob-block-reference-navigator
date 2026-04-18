@@ -1,93 +1,129 @@
-# ob-block-reference-navigator
-Block quote sidebar display and identification
+# Block Reference Navigator
 
-一个面向 **Obsidian 当前页面块引用导航** 的插件。
+A minimal, high-density sidebar panel for navigating, previewing, and exporting block-level references in Obsidian.
 
-它会识别当前激活页面中形如 `![[文件名|o-xxx]] / ![[文件名#^blockid]]` 的嵌入，并提供两类增强：
+---
 
-- 在阅读视图中，为匹配到的嵌入块左侧添加emoji 提示标记。
-- 在右侧侧边栏中，仅展示 **当前页** 的块内容预览，并支持快速跳转。
+## ✨ Features
 
-## 功能特性
+### 🔍 Block Reference Indexing
 
-### 1. 仅关注当前页
-插件不会把整个库里的块引用全部堆进侧边栏，而是只展示当前激活文档中的匹配项，适合把右侧面板当作“当前页引用导航器”使用。
+* Supports:
 
-### 2. 支持 `![[文件名|o-xxx]] / ![[文件名#^blockid]]` 识别
-插件以 `o-xxx` 作为内部识别别名，但不会把它作为 UI 主体暴露出来。
+  * `![[file#^block]]`
+  * `[[file#^block]]`
+  * `![[file#heading]]`
+  * `[[file#heading]]`
+* Automatically scans and indexes all block-level references in the current note
 
-### 3. 阅读视图左侧emoji 提示标记
-在阅读视图中，匹配到的嵌入块会自动出现一个可自定义的左侧提示标志。
+---
 
-可配置：
+### 📑 Minimal Sidebar Panel
 
-- 标志文字
-- 标志颜色
-- 横向平移
-- 纵向平移
+* Clean, compact list-style UI
+* Sequential numbering (1, 2, 3...)
+* High information density
+* Designed for long-term side panel usage
 
-### 4. 侧边栏块内容预览
-侧边栏中每一项默认以块内容为主体，不显示冗余 ID 信息，适合作为阅读导航。
+---
 
-### 5. 双跳转逻辑
-每条侧边栏卡片都支持两种跳转：
+### 🧠 Structured Preview
 
-- **定位**：跳回当前页中该嵌入出现的位置。
-- **原文**：跳转到目标文件中的原文位置。
+* Markdown-aware preview (not plain text)
+* Preserves:
 
-原文跳转遵循以下优先级：
+  * Lists
+  * Blockquotes
+  * Headings
+  * Basic formatting
 
-1. 如果目标写法包含真实块锚点，如 `![[文件名#^blockid|o-xxx]]`，优先按块锚点精确跳转。
-2. 如果没有块锚点，则打开目标文件后，使用 `o-xxx` 在原文中搜索定位。
+---
 
-## 适用语法
+### ✂️ Smart Summary Mode
 
-插件当前面向下面这种嵌入格式：
+* Block-structured summarization (not naive truncation)
+* Keeps full Markdown blocks whenever possible
+* Expand / collapse support
 
-```md
-![[Some Note|o-001]]
-![[Some Note#^abc123|o-002]]
-```
+---
 
-## 安装
+### 🎯 Robust Navigation
 
-### 手动安装
+* Multi-strategy fallback:
 
-1. 下载发布包中的以下文件：
-   - `manifest.json`
-   - `main.js`
-   - `styles.css`
-   - `versions.json`
-2. 在你的 Obsidian 仓库中创建目录：
+  * Block ID
+  * Heading match
+  * Text snapshot
+  * Line fallback
+* More stable than single-anchor navigation
 
-```text
-.obsidian/plugins/block-reference-current-page/
-```
+---
 
-3. 将上述文件放入该目录。
-4. 重启 Obsidian，或在“社区插件”中刷新插件列表。
-5. 启用 **Block Reference Current Page**。
+### 🧹 Smart Filtering
 
-## 使用方式
+* Optional filtering for:
 
-### 打开侧边栏
-可通过以下方式打开面板：
+  * Low-information blocks
+  * Duplicate references
+* Toggle between:
 
-- 左侧 Ribbon 图标
-- 命令面板：`打开当前页块引用面板`
+  * Smart view
+  * Full view
 
-### 面板交互
-面板顶部支持：
+---
 
-- 排序方式切换
-- 升序 / 降序切换
-- 手动刷新
-- 打开设置
+### 📤 Export Block References
 
-### 卡片交互
-每条卡片默认展示块内容，并提供：
+* Export all references into a Markdown file
+* Includes:
 
-- **定位**：回到当前页引用位置
-- **原文**：跳到目标文件原文位置
+  * Source note
+  * Target path
+  * Block content
+  * Metadata
+* Configurable export options
 
+---
 
+## ⚙️ Settings
+
+Minimal, native Obsidian-style settings:
+
+* Summary mode (structured)
+* Summary length
+* Smart filtering
+* Export behavior
+
+---
+
+## 🧩 Design Philosophy
+
+> Minimal UI. Maximum signal.
+
+* No visual noise
+* No heavy cards
+* No redundant explanations
+* Just a fast, structured index of your block references
+
+---
+
+## 🚀 Use Cases
+
+* Literature review navigation
+* Knowledge graph anchoring
+* Block-level linking workflows
+* High-density reading and annotation
+
+---
+
+## 📌 Notes
+
+* Heading references (`#heading`) may not be unique
+* Block IDs (`^block`) are more stable for precise navigation
+* Summary mode prioritizes structure over exact character count
+
+---
+
+## 📄 License
+
+MIT
